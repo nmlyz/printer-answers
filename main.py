@@ -31,6 +31,8 @@ def main():
     path = os.path.join(out_dir, "entry.txt")
     if not (1 <= len(LINE) <= 240):
         sys.exit(f"line is {len(LINE)} characters, gate needs 1-240")
+    if not LINE.strip():
+        sys.exit("line must not be blank")
     if "\n" in LINE or LINE != LINE.strip():
         sys.exit("line must be a single line with no surrounding space")
     data = (LINE + "\n").encode("utf-8")
